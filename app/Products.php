@@ -1,4 +1,4 @@
-<?
+<?php
 namespace App;
 
 use App\Http\Controllers\LogController;
@@ -13,7 +13,8 @@ class Products extends Eloquent
             'product_name',
             'product_price',
             'product_count',
-            'product_seller'
+            'product_seller',
+            'product_img'
         );
         return $query;
     }

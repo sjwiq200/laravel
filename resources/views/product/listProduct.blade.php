@@ -34,33 +34,14 @@
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
         }
-
         .nav-scroller .nav-link {
             padding-top: .75rem;
             padding-bottom: .75rem;
             font-size: .875rem;
         }
-
-
-        /*
-         * Blog name and description
-         */
-
-
-        /* Pagination */
-        .blog-pagination {
-            margin-bottom: 4rem;
-        }
         .blog-pagination > .btn {
             border-radius: 2rem;
         }
-
-
-
-        /*
-         * Footer
-         */
-
         .blog-footer p:last-child {
             margin-bottom: 0;
         }
@@ -90,7 +71,7 @@
 
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                            <img class="card-img-top" src="{{ asset('/upload/product/'.$product['product_img']) }}" alt="Card image cap">
                             <div class="card-body">
                                 <p class="card-text">상품명 : {{ $product['product_name'] }}</p>
                                 <p class="card-text">상품가격 : {{ $product['product_price'] }} 원</p>
@@ -106,23 +87,7 @@
                             </div>
                         </div>
                     </div>
-
                 @endforeach
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

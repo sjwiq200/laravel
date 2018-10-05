@@ -10,8 +10,6 @@
 
     <title>Blog Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
@@ -61,6 +59,13 @@
                     </div>
                 </div>
 
+                <div class="mb-3">
+                    <label for="product-img">상품 이미지</label>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="product-img" name="product-img" placeholder="상품 이미지" required>
+                    </div>
+                </div>
+
 
 
             </form>
@@ -98,7 +103,7 @@
 
 <script>
     $('.btn-primary').on('click', function () {
-        $('.needs-validation').attr('action','/product/addProduct').attr('method','POST').submit();
+        $('.needs-validation').attr('action','/product/addProduct').attr('method','POST').attr('enctype','multipart/form-data').submit();
     })
 </script>
 </body>

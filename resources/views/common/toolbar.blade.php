@@ -9,9 +9,6 @@
 
     <title>Blog Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <style>
@@ -115,9 +112,9 @@
                 </a>
 
                 @if (Session::has('users'))
-                    <a class="btn btn-sm btn-outline-secondary" href="/logout">Sign out</a>
+                    <a class="btn btn-sm btn-outline-secondary" href="/user/logout">Sign out</a>
                 @else
-                    <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+                    <a class="btn btn-sm btn-outline-secondary" href="/user/login">Sign in</a>
                 @endif
                 {{--아이디 : {{Session::get('users')}}--}}
             </div>
@@ -127,6 +124,7 @@
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
             <a class="p-2 text-muted" href="/product/listProduct">상품</a>
+            <a class="p-2 text-muted" href="/product/getUser">내 정보</a>
         </nav>
     </div>
 

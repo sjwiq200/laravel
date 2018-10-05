@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Library\Common;
 use App\Users;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
@@ -15,6 +16,16 @@ use Illuminate\Support\Facades\Session;
 class UserController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function getUser(Request $request) {
+
+        if ($request->session()->get('users') == null ) {
+            $common = new Common();
+            $common->alert("");
+        }
+        return view('main')->with('users');
+
+    }
 
     public function signUp(Request $request) {
 
@@ -35,7 +46,7 @@ class UserController extends BaseController
 
         }//End if
 
-        $request->setSession('users',$userId);
+        $request->session()->put('users',$userId);
         return view('main')->with('users');
     }
 }

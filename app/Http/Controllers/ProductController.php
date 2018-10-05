@@ -36,12 +36,26 @@ class ProductController extends BaseController
         $productPrice = $request->input('product-price');
         $productCount = $request->input('product-count');
         $productSeller = $request->session()->get('users');
+        $productImg = $request->input('product-img');
 
-        $productModel = new Products();
-        $productModel->insertProduct(['product_name'=>$productName,
+
+        $image = $request->file('product-img');
+        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/upload/product');
+        $image->move($destinationPath, $input['imagename']);
+
+        $array = array(
+            'product_name'=>$productName,
             'product_price' =>$productPrice,
             'product_count' =>$productCount,
-            'product_seller' =>$productSeller]);
+            'product_seller' =>$productSeller,
+            'product_img' =>$input['imagename']
+        );
+
+        $productModel = new Products();
+        $productModel->insertProduct($array);
+
+        return redirect('/product/listProduct');
 
     }
 

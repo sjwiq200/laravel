@@ -42,7 +42,6 @@ class EmailController extends BaseController
 
         });
         return $randNo;
-
     }
 
 

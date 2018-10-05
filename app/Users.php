@@ -1,4 +1,4 @@
-<?
+<?php
 namespace App;
 
 use App\Http\Controllers\LogController;

@@ -36,7 +36,7 @@ class LoginController extends BaseController
 
     public function logout() {
         Session::remove('users');
-        return view('login');
+        return view('main');
 
     }
 

@@ -15,22 +15,25 @@
 //    return view('welcome');
 //});
 
-Route::get('/', 'LoginController@loginCheck');
+Route::get('/', function () {
+    return view('main');
+});
 
 Route::get('/mailAuth/{email}', 'EmailController@sendEmail');
 
 Route::prefix('user')->group(function () {
-
 
     Route::get('/signUp', function () {
         return view('/user/signUp');
     });
 
     Route::post('/signUp', 'UserController@signUp');
-
+    Route::get('/login', 'LoginController@loginCheck');
     Route::post('/login', 'LoginController@login');
 
     Route::get('/logout', 'LoginController@logout');
+
+    Route::get('/getUser' ,'UserController@getUser');
 });
 
 
