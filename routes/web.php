@@ -17,9 +17,21 @@
 
 Route::get('/', 'LoginController@loginCheck');
 
-Route::post('/login', 'LoginController@login');
+Route::get('/mailAuth/{email}', 'EmailController@sendEmail');
 
-Route::get('/logout', 'LoginController@logout');
+Route::prefix('user')->group(function () {
+
+
+    Route::get('/signUp', function () {
+        return view('/user/signUp');
+    });
+
+    Route::post('/signUp', 'UserController@signUp');
+
+    Route::post('/login', 'LoginController@login');
+
+    Route::get('/logout', 'LoginController@logout');
+});
 
 
 Route::prefix('product')->group(function() {

@@ -80,6 +80,7 @@
             </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="login()">Sign in</button>
+        <button class="btn btn-lg btn-block" type="submit" onclick="signUp()">Sign up</button>
         {{--<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>--}}
     </form>
 
@@ -88,7 +89,11 @@
         var login = function () {
             $('#user-id').val();
             $('#user-password').val();
-            $("form").attr("method" , "POST").attr("action" , "/login").submit();
+            $("form").attr("method" , "POST").attr("action" , "/user/login").submit();
+        }
+
+        var signUp = function () {
+            location.href = '/user/signUp';
         }
     </script>
 

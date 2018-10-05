@@ -25,7 +25,7 @@ class LoginController extends BaseController
 
         if(count($selectLoginUser) >0) {
             $request->session()->put('users', $selectLoginUser[0]['user_id']);
-            return view('main')->with('user');
+            return view('main')->with('users');
 
         } else {
             $commonLib->alert("아디비번안맞아 ㅡㅡ");

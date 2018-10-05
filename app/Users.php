@@ -4,9 +4,6 @@ namespace App;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\MemberPointLogController;
 use Eloquent;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
 
 class Users extends Eloquent
 {
@@ -14,8 +11,13 @@ class Users extends Eloquent
         $query = $this->select(
             'user_no',
             'user_id',
-            'user_password'
+            'user_password',
+            'user_name'
         );
         return $query;
+    }
+
+    public function insertDefault($array) {
+        $query = $this->insert($array);
     }
 }
